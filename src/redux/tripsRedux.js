@@ -14,10 +14,11 @@ export const getFilteredTrips = ({trips, filters}) => {
   // TODO - filter by duration
 
   if(filters.duration) {
-    const days = filters.duration.to - filters.duration.from + 1;
-    output = output.filter(trip => trip.days === days);
+    const minDays = filters.duration.from;
+    const maxDays = filters.duration.to;
+    output = output.filter(trip => trip.days >= minDays && trip.days <= maxDays);
   }
-  
+
   // TODO - filter by tags
   if(filters.tags) {
     const pattern = new RegExp(filters.tags, 'i');
