@@ -11,10 +11,9 @@ class TripListOptions extends React.Component {
       this.props.changeSearchTags(tag);
       // TODO - use action dispatcher from props
     } else {
-      console.log('Removing tag', tag);
-      // const index = filters.tags.indexOf(tag);
-      this.props.changeSearchTags(tag);
-        //.splice(index, 1);
+  
+      this.props.removeSearchTags(tag);
+      
       // TODO - use action dispatcher from props
     }
   }
@@ -78,6 +77,8 @@ TripListOptions.propTypes = {
   tags: PropTypes.object,
   filters: PropTypes.object,
   changeSearchPhrase: PropTypes.func,
+  changeSearchTags: PropTypes.func,
+  changeSearchDuration: PropTypes.func
 };
 
 export default TripListOptions;
