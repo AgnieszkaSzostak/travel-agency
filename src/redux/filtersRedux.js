@@ -19,7 +19,9 @@ export const CHANGE_DURATION = createActionName('CHANGE_DURATION');
 export const changeSearchPhrase = payload => ({ payload, type: CHANGE_PHRASE });
 export const changeSearchTags = payload => ({ payload, type: CHANGE_TAGS });
 export const removeSearchTags = payload => ({ payload, type: REMOVE_TAGS });
-export const changeSearchDuration = payload => ({ payload, type: CHANGE_DURATION });
+export const changeSearchDuration = (type, value) => ({   payload: {[type]: value}, 
+  type: CHANGE_DURATION });
+
 // TODO - add other action creators
 
 // reducer
@@ -36,20 +38,21 @@ export default function reducer(statePart = [], action = {}) {
         tags: [...statePart.tags, action.payload]
       };
       case REMOVE_TAGS:
-        console.log("payload", action.payload);
-        console.log(["statePart", statePart])
         const indexOfRemovedTag = statePart.tags.indexOf(action.payload);
-        console.log("index", indexOfRemovedTag);
+        statePart.tags.splice(indexOfRemovedTag, 1);
       return {
         ...statePart,
-        tags: [...statePart.tags, ...statePart.tags.splice(indexOfRemovedTag, 1)]
+        tags: statePart.tags,
       };
-      
       case CHANGE_DURATION:
-      return {
-        ...statePart,
-        duration: action.payload,
-      };
+        return {
+          ...statePart,
+          duration: {
+            ...statePart.duration,
+            ...action.payload,
+          },
+        };
+
     // TODO - handle other action types
     default:
       return statePart;
