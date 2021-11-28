@@ -14,7 +14,7 @@ class OrderForm extends React.Component {
             <Row>
                 {pricing.map((pricingOption) => (
                     <Col md={4} key={pricingOption.id}>
-                        <OrderOption>{{...pricingOption}}</OrderOption>
+                        <OrderOption {...pricingOption}/>
                     </Col>
                 ))}
                 <Col xs={12}>

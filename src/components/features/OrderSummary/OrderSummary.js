@@ -9,8 +9,9 @@ class OrderSummary extends React.Component {
         const {cost, options} = this.props;
 
         return(
-            <h2 className={styles.component}>{formatPrice(calculateTotal(cost, options))}</h2>
+        <h2 className={styles.component}>{formatPrice(calculateTotal(cost, options))}</h2>
         )
+        
     }
 }
 
