@@ -18,7 +18,7 @@ import NotFound from './components/views/NotFound/NotFound';
 
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
-import {AnimatedSwitch, spring} from 'react-router-transition';
+import {AnimatedSwitch} from 'react-router-transition';
 import styles from './App.module.scss';
 
 
