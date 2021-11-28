@@ -14,7 +14,7 @@ class OrderSummary extends React.Component {
         return(
         <h2 className={styles.component}>{formatPrice(calculateTotal(cost, options))}</h2>
         )
-        
+        //formatPrice(calculateTotal(cost, options))
     }
 }
 

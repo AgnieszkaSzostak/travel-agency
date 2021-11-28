@@ -3,7 +3,7 @@ import tripList from '../data/trips.json';
 
 import globalReducer from './globalRedux';
 import filtersReducer from './filtersRedux';
-import orderReducer from './orderRedux'
+import orderReducer from './orderRedux.js'
 
 // define initial state and shallow-merge initial data
 const initialState = {

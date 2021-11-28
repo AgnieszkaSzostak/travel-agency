@@ -10,13 +10,11 @@ class OrderForm extends React.Component {
     render(){
         const {tripCost, options} = this.props;
         return(
-            <div >
-                <Row>
+            <Row>
                     <Col xs={12}>
                         <OrderSummary cost={tripCost} options={options}></OrderSummary>
                     </Col>
-                </Row>
-            </div>
+            </Row>
         )
     }
 }
