@@ -21,16 +21,11 @@ import {setMultipleStates} from './redux/globalRedux';
 import {AnimatedSwitch, spring} from 'react-router-transition';
 import styles from './App.module.scss';
 
-function bounce(val) {
-  return spring(val, {
-    stiffness: 90,
-    damping: 40
-  });
-}
 
 function mapStyles(styles) {
   return {
-    transform: `translateY(${styles.translateY}%)`
+    transform: `translateY(${styles.translateY}%)`,
+    opacity: styles.opacity
   };
 }
 
@@ -60,8 +55,8 @@ class App extends React.Component {
         <MainLayout>
           <AnimatedSwitch
             atEnter={{opacity: 1, translateY: 200}}
-            atLeave={{opacity: 0, translateY: bounce(0)  }}
-            atActive={{opacity: 1, translateY: bounce(0) }}
+            atLeave={{opacity: 0, translateY: 0}}
+            atActive={{opacity: 1, translateY: 0}}
             mapStyles={mapStyles}
             className={styles.switchWrapper}
           >

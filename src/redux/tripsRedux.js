@@ -32,8 +32,9 @@ export const getFilteredTrips = ({trips, filters}) => {
 };
 
 export const getTripById = ({trips}, tripId) => {
-  const filtered = trips.filter(trip => new RegExp(tripId, 'i').test(trip.id));
-  
+  const filter = trips.find(trip => trip.id === tripId);
+  const filtered = [];
+  filtered.push(filter);
   // TODO - filter trips by tripId
 
   console.log('filtering trips by tripId:', tripId, filtered);
@@ -41,7 +42,7 @@ export const getTripById = ({trips}, tripId) => {
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
-  const filtered = trips.filter(trip => new RegExp(countryCode, 'i').test(trip.country.code));
+  const filtered = trips.filter(trip => trip.country.code === countryCode);
 
   // TODO - filter trips by countryCode
 

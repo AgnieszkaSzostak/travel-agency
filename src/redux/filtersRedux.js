@@ -39,10 +39,11 @@ export default function reducer(statePart = [], action = {}) {
       };
       case REMOVE_TAGS:
         const indexOfRemovedTag = statePart.tags.indexOf(action.payload);
-        statePart.tags.splice(indexOfRemovedTag, 1);
+        const newTags = [...statePart.tags];
+        newTags.splice(indexOfRemovedTag, 1);
       return {
         ...statePart,
-        tags: statePart.tags,
+        tags: newTags,
       };
       case CHANGE_DURATION:
         return {
