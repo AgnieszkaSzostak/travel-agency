@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './OrderOption.module.scss';
 import { formatPrice } from '../../../utils/formatPrice';
 
-const OrderOptionNumber = (type, limits, price, currentValue, setOptionValue) => (
+const OrderOptionNumber = ({limits, price, currentValue, setOptionValue}) => (
     
   <div className={styles.number}>
     <input className={styles.inputSmall} 
