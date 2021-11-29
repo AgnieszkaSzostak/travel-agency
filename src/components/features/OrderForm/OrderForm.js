@@ -9,12 +9,13 @@ import {Row, Col} from 'react-flexbox-grid';
 class OrderForm extends React.Component {
     
     render(){
-        const {tripCost, options} = this.props;
+        const {tripCost, options, setOrderOption} = this.props;
         return(
             <Row>
                 {pricing.map((pricingOption) => (
                     <Col md={4} key={pricingOption.id}>
-                        <OrderOption {...pricingOption}/>
+                        {/* options[pricingOption.id] ??? */}
+                        <OrderOption {...pricingOption} currentValue={options[pricingOption.id]} setOrderOption={setOrderOption}/>
                     </Col>
                 ))}
                 <Col xs={12}>
@@ -26,7 +27,8 @@ class OrderForm extends React.Component {
 }
 OrderForm.propTypes = {
     tripCost: PropTypes.string,
-    options: PropTypes.object
+    options: PropTypes.object,
+    setOrderOption: PropTypes.func,
 }
 
 export default OrderForm;
