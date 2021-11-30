@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './OrderForm.module.scss';
+import styles from './OrderForm.module.scss';
 import OrderSummary from '../OrderSummary/OrderSummary.js';
 import OrderOption from '../OrderOption/OrderOption.js';
 import pricing from '../../../data/pricing.json';
@@ -13,8 +13,7 @@ class OrderForm extends React.Component {
         return(
             <Row>
                 {pricing.map((pricingOption) => (
-                    <Col md={4} key={pricingOption.id}>
-                        {/* options[pricingOption.id] ??? */}
+                    <Col className={styles.col} md={4} key={pricingOption.id}>
                         <OrderOption {...pricingOption} currentValue={options[pricingOption.id]} setOrderOption={setOrderOption}/>
                     </Col>
                 ))}
