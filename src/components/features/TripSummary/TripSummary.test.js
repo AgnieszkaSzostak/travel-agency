@@ -21,6 +21,7 @@ describe('Component TripSummary', () => {
     
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt); 
+   
   })
   it('should render correct name, cost and days', () => {
     const expectedName = 'NewZeland';
@@ -34,16 +35,26 @@ describe('Component TripSummary', () => {
     expect(renderedName).toEqual(expectedName);
     expect(component.find('.tripLenght').text()).toEqual('3 days');
     expect(component.find('.tripCost').text()).toEqual('from 420$');
+    
   });
  it('should render with crashing if missing any props', () => {
   
    expect(() => shallow(<TripSummary />)).toThrow(); 
  })
- it('...', () => {
+ it('should render span with tag name in proper order', () => {
    const expectedTags = ["tag1", "tag2", "tag3"];
 
    const component = shallow(<TripSummary tags={expectedTags}/>);
 
+  expect(component.find('.tag').at(0).text()).toEqual('tag1');
+  expect(component.find('.tag').at(1).text()).toEqual('tag2');
+  expect(component.find('.tag').at(2).text()).toEqual('tag3');
+ })
+ it('shouldnt render div with className tags if tags props is false or an empty array', () => { 
+
+  const component = shallow(<TripSummary />);
+  expect(component.find('.tags').exists()).toEqual(false);
+  console.log(component.debug());
    
  })
 })
