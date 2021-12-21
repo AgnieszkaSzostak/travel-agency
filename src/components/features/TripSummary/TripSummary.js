@@ -14,7 +14,7 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
           <span className="tripLenght">{days} days</span>
           <span className="tripCost">from {cost}</span>
         </div>
-        {(tags && tags.length) && <div className={styles.tags}>
+        {tags && <div className={styles.tags}>
           {tags.map(tag => (
             <span className={styles.tag} key={tag.toString()}>{tag}</span>
           ))}
@@ -33,5 +33,6 @@ TripSummary.propTypes = {
   days: PropTypes.number,
   tags: PropTypes.array.isRequired,
 };
+
 
 export default TripSummary;
